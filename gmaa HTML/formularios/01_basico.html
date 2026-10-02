@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Alumno: Galicia Marquezz Alberto Argenis | No. de control: 0840 -->
+<!-- Indica al navegador que el documento usa HTML5 -->
+<html lang="es">
+<head>
+<!-- Codificación de caracteres para ver bien acentos y la letra ñ -->
+<meta charset="UTF-8">
+<!-- meta author: indica el autor del documento -->
+<meta name="author" content="Galicia Marquezz Alberto Argenis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario básico</title>
+</head>
+<body>
+
+<!-- Datos del alumno que realiza la actividad -->
+<p><strong>Nombre del alumno:</strong> Galicia Marquezz Alberto Argenis<br>
+<strong>Número de control:</strong> 0840</p>
+
+<h1>Formularios</h1>
+<p>Un formulario permite al visitante cargar datos y que sean enviados al servidor.</p>
+<p>El HTML no tiene la responsabilidad de registrar los datos en el servidor,
+esta actividad se delega a través de un lenguaje que se ejecute en el servidor (PHP,
+ASP, ASP.NET, Node, etc.)</p>
+
+<h2>Ejemplo básico</h2>
+
+<!-- form: contenedor del formulario.
+     action: archivo o URL del servidor que recibirá los datos (vacío = la misma página).
+     method="post": los datos viajan ocultos en el cuerpo de la petición. -->
+<form action="" method="post">
+  Ingresa tu nombre:
+  <!-- input type="text": caja de texto de una sola línea.
+       name: nombre con el que el servidor identifica el dato.
+       size: ancho de la caja, en caracteres. -->
+  <input type="text" name="nombre" size="20">
+  <br>
+  <!-- input type="submit": botón que envía el formulario; value es el texto del botón -->
+  <input type="submit" value="enviar">
+</form>
+
+</body>
+</html>

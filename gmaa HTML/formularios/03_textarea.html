@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Alumno: Galicia Marquezz Alberto Argenis | No. de control: 0840 -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- meta author: indica el autor del documento -->
+<meta name="author" content="Galicia Marquezz Alberto Argenis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario con textarea</title>
+</head>
+<body>
+
+<!-- Datos del alumno que realiza la actividad -->
+<p><strong>Nombre del alumno:</strong> Galicia Marquezz Alberto Argenis<br>
+<strong>Número de control:</strong> 0840</p>
+
+<h2>Formulario con text area</h2>
+
+<form action="" method="post">
+  Ingresa tu nombre:
+  <input type="text" name="nombre">
+  <br>
+  Ingresa tu correo:
+  <!-- type="email": el navegador valida que el texto tenga formato de correo (con @) -->
+  <input type="email" name="correo">
+  <br>
+  Ingresa tus comentarios:
+  <!-- textarea: caja de texto de varias líneas.
+       rows: número de líneas visibles.
+       cols: ancho en caracteres.
+       A diferencia de input, lleva etiqueta de cierre. -->
+  <textarea name="comentarios" rows="1" cols="10"></textarea>
+  <br>
+  <input type="submit" value="enviar">
+  <input type="reset" value="borrar">
+</form>
+
+</body>
+</html>

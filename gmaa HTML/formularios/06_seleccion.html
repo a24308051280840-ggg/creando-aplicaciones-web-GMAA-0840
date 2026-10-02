@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Alumno: Galicia Marquezz Alberto Argenis | No. de control: 0840 -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- meta author: indica el autor del documento -->
+<meta name="author" content="Galicia Marquezz Alberto Argenis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario con selección</title>
+</head>
+<body>
+
+<!-- Datos del alumno que realiza la actividad -->
+<p><strong>Nombre del alumno:</strong> Galicia Marquezz Alberto Argenis<br>
+<strong>Número de control:</strong> 0840</p>
+
+<h2>Formularios con selección</h2>
+
+<form action="" method="post">
+  Ingresa tu nombre:
+  <input type="text" name="nombre"><br>
+  Selecciona tu país:
+  <!-- select: lista desplegable; el usuario elige una opción -->
+  <select name="pais">
+    <!-- option: cada elemento de la lista.
+         value: dato que se envía al servidor; el texto es lo que ve el usuario. -->
+    <option value="1">Argentina</option>
+    <option value="2">España</option>
+    <option value="3">México</option>
+    <option value="4">Guatemala</option>
+    <option value="5">Honduras</option>
+    <option value="6">El Salvador</option>
+    <option value="7">Venezuela</option>
+    <option value="8">Colombia</option>
+  </select>
+  <br>
+  <input type="submit" value="enviar">
+  <input type="reset" value="borrar">
+</form>
+
+</body>
+</html>

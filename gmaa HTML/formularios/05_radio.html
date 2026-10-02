@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Alumno: Galicia Marquezz Alberto Argenis | No. de control: 0840 -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- meta author: indica el autor del documento -->
+<meta name="author" content="Galicia Marquezz Alberto Argenis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario con radio botón</title>
+</head>
+<body>
+
+<!-- Datos del alumno que realiza la actividad -->
+<p><strong>Nombre del alumno:</strong> Galicia Marquezz Alberto Argenis<br>
+<strong>Número de control:</strong> 0840</p>
+
+<h2>Formularios con Radiobotón</h2>
+
+<form action="" method="post">
+  Ingresa tu nombre:
+  <input type="text" name="nombre">
+  <br>
+  Selecciona el máximo de estudios que tienes:
+  <br>
+  <!-- type="radio": botón de opción; solo se puede elegir UNA del grupo.
+       Todas las opciones del grupo deben tener el MISMO name ("estudios").
+       value: valor que se envía al servidor según la opción elegida. -->
+  <input type="radio" name="estudios" value="1">Sin estudios <br>
+  <input type="radio" name="estudios" value="2">Primaria <br>
+  <input type="radio" name="estudios" value="3">Secundaria <br>
+  <input type="radio" name="estudios" value="4">Preparatoria <br>
+  <input type="submit" value="enviar">
+  <input type="reset" value="borrar">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Alumno: Galicia Marquezz Alberto Argenis | No. de control: 0840 -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- meta author: indica el autor del documento -->
+<meta name="author" content="Galicia Marquezz Alberto Argenis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario con agrupamiento</title>
+<!-- Librería de iconos en línea (Font Awesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/7.3.1/css/all.min.css">
+</head>
+<body>
+
+<!-- Datos del alumno que realiza la actividad -->
+<p><strong>Nombre del alumno:</strong> Galicia Marquezz Alberto Argenis<br>
+<strong>Número de control:</strong> 0840</p>
+
+<h2>Formularios con agrupamiento</h2>
+
+<!-- Se agrega enctype porque el formulario contiene campos de archivo -->
+<form action="" method="post" enctype="multipart/form-data">
+
+  <!-- fieldset: agrupa campos relacionados dentro de un recuadro -->
+  <fieldset>
+    <!-- legend: título del grupo -->
+    <legend>Datos personales</legend>
+    Nombre y apellido:
+    <input type="text" name="nombre_apellido"><br>
+    Documento válido:
+    <input type="file" name="documento"><br>
+    Fecha de nacimiento:
+    <!-- type="date": muestra un selector de fecha -->
+    <input type="date" name="fecha_nacimiento">
+  </fieldset>
+
+  <!-- Segundo grupo de campos -->
+  <fieldset>
+    <legend>Datos de estudio:</legend>
+    Nombre de la escuela:
+    <input type="text" name="escuela"><br>
+    Certificado válido:
+    <input type="file" name="certificado"><br>
+    Fecha de egreso:
+    <input type="date" name="fecha_egreso">
+  </fieldset>
+  <br>
+  <button type="submit">Enviar <i class="fa-regular fa-paper-plane"></i> </button>
+  <button type="reset">Borrar <i class="fa fa-trash"></i></button>
+</form>
+
+</body>
+</html>

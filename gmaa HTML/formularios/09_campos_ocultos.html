@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- Alumno: Galicia Marquezz Alberto Argenis | No. de control: 0840 -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- meta author: indica el autor del documento -->
+<meta name="author" content="Galicia Marquezz Alberto Argenis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario con campos ocultos</title>
+<!-- Librería de iconos en línea (Font Awesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/7.3.1/css/all.min.css">
+</head>
+<body>
+
+<!-- Datos del alumno que realiza la actividad -->
+<p><strong>Nombre del alumno:</strong> Galicia Marquezz Alberto Argenis<br>
+<strong>Número de control:</strong> 0840</p>
+
+<h2>Formulario con campos ocultos</h2>
+
+<form action="" method="post">
+  <!-- type="hidden": campo que NO se ve en pantalla, pero sí se envía al servidor.
+       Sirve para mandar datos fijos (hora, identificadores, etc.) -->
+  <input type="hidden" name="hora" value="3:30">
+  Ingresa tu nombre:
+  <input type="text" name="nombre">
+  <br>
+  <button type="submit">Enviar <i class="fa-regular fa-paper-plane"></i> </button>
+  <button type="reset">Borrar <i class="fa fa-trash"></i></button>
+</form>
+
+</body>
+</html>
