@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mundo iPhone</title>
+     <!--GALICIA MARQUEZ ALBERTO ARGENIS 0840 -->
+  <!-- CSS BÁSICO DENTRO DEL DOCUMENTO -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    header {
+      text-align: center;
+      background-color: #1d1d1f;
+      color: white;
+      padding: 15px;
+    }
+    nav a {
+      color: #9ecbff;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    img {
+      max-width: 100%;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th {
+      background-color: #0071e3;
+      color: white;
+    }
+    th, td {
+      border: 1px solid #999;
+      padding: 8px;
+      text-align: left;
+    }
+    button {
+      background-color: #0071e3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    footer {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO DE LA PÁGINA -->
+  <header>
+    <h1>Mundo iPhone</h1>
+    <p>Todo lo que necesitas saber sobre los celulares de Apple</p>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="#inicio">Inicio</a> |
+      <a href="#modelos">Modelos</a> |
+      <a href="#elegir">Cómo elegir</a> |
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- IMAGEN 1: PORTADA -->
+  <p>
+    <img src="portada.png" alt="Portada: varios iPhone de diferentes colores">
+  </p>
+
+  <main>
+
+    <!-- SECCIÓN 1: INICIO -->
+    <section id="inicio">
+      <h2>¿Qué es el iPhone?</h2>
+      <p>
+        El iPhone es la línea de teléfonos inteligentes creada por Apple. Se lanzó por primera vez en 2007
+        y funciona con el sistema operativo iOS. Se caracteriza por su cámara, su rendimiento y las
+        actualizaciones de software por varios años.
+      </p>
+
+      <!-- IMAGEN 2: INICIO -->
+      <p>
+        <img src="iphone-inicio.png" alt="Un iPhone visto de frente y de atrás" width="300">
+      </p>
+
+      <h3>Características principales</h3>
+      <ul>
+        <li>Sistema operativo iOS</li>
+        <li>Chip propio de Apple</li>
+        <li>Cámaras de alta calidad</li>
+        <li>Face ID para desbloquear el teléfono</li>
+        <li>Integración con otros productos Apple</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <!-- SECCIÓN 2: MODELOS (TABLA 1) -->
+    <section id="modelos">
+      <h2>Modelos de iPhone</h2>
+
+      <!-- IMAGEN 3: MODELOS -->
+      <p>
+        <img src="modelos.png" alt="Comparación de varias generaciones de iPhone" width="500">
+      </p>
+
+      <p>Tabla de algunas generaciones recientes:</p>
+
+      <table>
+        <caption>Generaciones de iPhone</caption>
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Año de lanzamiento</th>
+            <th>Chip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>iPhone 12</td>
+            <td>2020</td>
+            <td>A14 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 13</td>
+            <td>2021</td>
+            <td>A15 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 14</td>
+            <td>2022</td>
+            <td>A15 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 15</td>
+            <td>2023</td>
+            <td>A16 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 16</td>
+            <td>2024</td>
+            <td>A18</td>
+          </tr>
+          <tr>
+            <td>iPhone 17</td>
+            <td>2025</td>
+            <td>A19</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECCIÓN 3: CÓMO ELEGIR (TABLA 2) -->
+    <section id="elegir">
+      <h2>¿Cómo elegir tu iPhone?</h2>
+      <p>Depende del uso que le vayas a dar:</p>
+
+      <!-- IMAGEN 4: CÁMARA -->
+      <p>
+        <img src="camara.png" alt="Cámaras traseras de un iPhone Pro" width="300">
+      </p>
+
+      <table>
+        <caption>Recomendación según el tipo de usuario</caption>
+        <thead>
+          <tr>
+            <th>Tipo de usuario</th>
+            <th>Qué necesita</th>
+            <th>Recomendación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Uso básico</td>
+            <td>Llamadas, redes sociales, fotos casuales</td>
+            <td>Un modelo estándar o de generación anterior</td>
+          </tr>
+          <tr>
+            <td>Estudiante</td>
+            <td>Buena batería y buen precio</td>
+            <td>Un modelo estándar reciente</td>
+          </tr>
+          <tr>
+            <td>Fotografía y video</td>
+            <td>Mejores cámaras y más almacenamiento</td>
+            <td>Un modelo Pro</td>
+          </tr>
+          <tr>
+            <td>Juegos y trabajo</td>
+            <td>Mayor rendimiento y pantalla grande</td>
+            <td>Un modelo Pro o Pro Max</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECCIÓN 4: CONTACTO (BOTÓN + FORMULARIO) -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes dudas? Presiona el botón para escribirnos.</p>
+
+      <button type="button" id="botonContacto" onclick="mostrarFormulario()">Contáctanos</button>
+
+      <!-- El formulario está oculto hasta que se presiona el botón -->
+      <form id="formContacto" hidden onsubmit="enviarFormulario(event)">
+        <h3>Formulario de contacto</h3>
+
+        <p>
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required>
+        </p>
+
+        <p>
+          <label for="correo">Correo electrónico:</label><br>
+          <input type="email" id="correo" name="correo" required>
+        </p>
+
+        <p>
+          <label for="modelo">Modelo de interés:</label><br>
+          <select id="modelo" name="modelo">
+            <option value="iphone12">iPhone 12</option>
+            <option value="iphone13">iPhone 13</option>
+            <option value="iphone14">iPhone 14</option>
+            <option value="iphone15">iPhone 15</option>
+            <option value="iphone16">iPhone 16</option>
+            <option value="iphone17">iPhone 17</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </p>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <hr>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>&copy; 2026 Mundo iPhone. Sitio con fines educativos.</p>
+  </footer>
+
+  <script>
+    // Muestra u oculta el formulario al presionar el botón
+    function mostrarFormulario() {
+      var form = document.getElementById("formContacto");
+      form.hidden = !form.hidden;
+    }
+
+    // Simula el envío del formulario (no hay base de datos)
+    function enviarFormulario(evento) {
+      evento.preventDefault();
+      var nombre = document.getElementById("nombre").value;
+      alert("Gracias, " + nombre + ". Tu mensaje fue enviado.");
+      document.getElementById("formContacto").reset();
+      document.getElementById("formContacto").hidden = true;
+    }
+  </script>
+
+</body>
+</html>
