@@ -264,20 +264,20 @@
   </footer>
 
   <script>
-    // Muestra u oculta el formulario al presionar el botón (función lambda)
-    const mostrarFormulario = () => {
-      const form = document.getElementById("formContacto");
+    // Muestra u oculta el formulario al presionar el botón
+    function mostrarFormulario() {
+      var form = document.getElementById("formContacto");
       form.hidden = !form.hidden;
-    };
+    }
 
-    // Simula el envío del formulario (no hay base de datos) (función lambda)
-    const enviarFormulario = (evento) => {
+    // Simula el envío del formulario (no hay base de datos)
+    function enviarFormulario(evento) {
       evento.preventDefault();
-      const nombre = document.getElementById("nombre").value;
+      var nombre = document.getElementById("nombre").value;
       alert("Gracias, " + nombre + ". Tu mensaje fue enviado.");
       document.getElementById("formContacto").reset();
       document.getElementById("formContacto").hidden = true;
-    };
+    }
   </script>
 
 </body>
