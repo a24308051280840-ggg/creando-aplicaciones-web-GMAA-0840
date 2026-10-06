@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mundo iPhone</title>
-  <!--GALICIA MARQUEZ ALBERTO ARGENIS 0840 -->
+     <!--GALICIA MARQUEZ ALBERTO ARGENIS 0840 -->
   <!-- CSS BÁSICO DENTRO DEL DOCUMENTO -->
   <style>
     body {
@@ -41,14 +41,6 @@
       border: 1px solid #999;
       padding: 8px;
       text-align: left;
-    }
-    summary {
-      background-color: #0071e3;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      display: inline-block;
     }
     button {
       background-color: #0071e3;
@@ -138,12 +130,36 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>iPhone 12</td><td>2020</td><td>A14 Bionic</td></tr>
-          <tr><td>iPhone 13</td><td>2021</td><td>A15 Bionic</td></tr>
-          <tr><td>iPhone 14</td><td>2022</td><td>A15 Bionic</td></tr>
-          <tr><td>iPhone 15</td><td>2023</td><td>A16 Bionic</td></tr>
-          <tr><td>iPhone 16</td><td>2024</td><td>A18</td></tr>
-          <tr><td>iPhone 17</td><td>2025</td><td>A19</td></tr>
+          <tr>
+            <td>iPhone 12</td>
+            <td>2020</td>
+            <td>A14 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 13</td>
+            <td>2021</td>
+            <td>A15 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 14</td>
+            <td>2022</td>
+            <td>A15 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 15</td>
+            <td>2023</td>
+            <td>A16 Bionic</td>
+          </tr>
+          <tr>
+            <td>iPhone 16</td>
+            <td>2024</td>
+            <td>A18</td>
+          </tr>
+          <tr>
+            <td>iPhone 17</td>
+            <td>2025</td>
+            <td>A19</td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -196,47 +212,46 @@
 
     <hr>
 
-    <!-- SECCIÓN 4: CONTACTO (DETAILS + FORMULARIO, SIN JAVASCRIPT) -->
+    <!-- SECCIÓN 4: CONTACTO (BOTÓN + FORMULARIO) -->
     <section id="contacto">
       <h2>Contacto</h2>
       <p>¿Tienes dudas? Presiona el botón para escribirnos.</p>
 
-      <details>
-        <summary>Contáctanos</summary>
+      <button type="button" id="botonContacto" onclick="mostrarFormulario()">Contáctanos</button>
 
-        <form action="#" method="get">
-          <h3>Formulario de contacto</h3>
+      <!-- El formulario está oculto hasta que se presiona el botón -->
+      <form id="formContacto" hidden onsubmit="enviarFormulario(event)">
+        <h3>Formulario de contacto</h3>
 
-          <p>
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required>
-          </p>
+        <p>
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required>
+        </p>
 
-          <p>
-            <label for="correo">Correo electrónico:</label><br>
-            <input type="email" id="correo" name="correo" required>
-          </p>
+        <p>
+          <label for="correo">Correo electrónico:</label><br>
+          <input type="email" id="correo" name="correo" required>
+        </p>
 
-          <p>
-            <label for="modelo">Modelo de interés:</label><br>
-            <select id="modelo" name="modelo">
-              <option value="iphone12">iPhone 12</option>
-              <option value="iphone13">iPhone 13</option>
-              <option value="iphone14">iPhone 14</option>
-              <option value="iphone15">iPhone 15</option>
-              <option value="iphone16">iPhone 16</option>
-              <option value="iphone17">iPhone 17</option>
-            </select>
-          </p>
+        <p>
+          <label for="modelo">Modelo de interés:</label><br>
+          <select id="modelo" name="modelo">
+            <option value="iphone12">iPhone 12</option>
+            <option value="iphone13">iPhone 13</option>
+            <option value="iphone14">iPhone 14</option>
+            <option value="iphone15">iPhone 15</option>
+            <option value="iphone16">iPhone 16</option>
+            <option value="iphone17">iPhone 17</option>
+          </select>
+        </p>
 
-          <p>
-            <label for="mensaje">Mensaje:</label><br>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-          </p>
+        <p>
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </p>
 
-          <button type="submit">Enviar</button>
-        </form>
-      </details>
+        <button type="submit">Enviar</button>
+      </form>
     </section>
 
   </main>
@@ -247,6 +262,23 @@
   <footer>
     <p>&copy; 2026 Mundo iPhone. Sitio con fines educativos.</p>
   </footer>
+
+  <script>
+    // Muestra u oculta el formulario al presionar el botón (función lambda)
+    const mostrarFormulario = () => {
+      const form = document.getElementById("formContacto");
+      form.hidden = !form.hidden;
+    };
+
+    // Simula el envío del formulario (no hay base de datos) (función lambda)
+    const enviarFormulario = (evento) => {
+      evento.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      alert("Gracias, " + nombre + ". Tu mensaje fue enviado.");
+      document.getElementById("formContacto").reset();
+      document.getElementById("formContacto").hidden = true;
+    };
+  </script>
 
 </body>
 </html>
