@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mundo iPhone</title>
+  <!-- GALICIA MARQUEZ ALBERTO ARGENIS 0840 -->
+  <!-- CSS BÁSICO DENTRO DEL DOCUMENTO -->
+  <style>
+    /* Colores principales de la página */
+    :root {
+      --negro: #1d1d1f;
+      --gris-fondo: #f5f5f7;
+      --gris-borde: #d2d2d7;
+      --gris-texto: #515154;
+      --azul: #0071e3;
+      --azul-oscuro: #0058b0;
+      --azul-claro: #9ecbff;
+      --blanco: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: var(--gris-fondo);
+      color: var(--negro);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0 16px 24px;
+      text-align: center;
+    }
+
+    /* Todo el contenido se centra en una columna de 900 px */
+    header, main, footer {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header {
+      background-color: var(--negro);
+      color: var(--blanco);
+      padding: 32px 20px 16px;
+      border-radius: 0 0 12px 12px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 2.4rem; letter-spacing: 0.5px; }
+    header p { margin: 0 auto 20px; color: #d2d2d7; }
+
+    nav {
+      border-top: 1px solid #424245;
+      padding-top: 12px;
+    }
+    nav a {
+      color: var(--azul-claro);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    nav a:hover, nav a:focus { background-color: #333336; color: var(--blanco); }
+
+    main {
+      background-color: var(--blanco);
+      border: 1px solid var(--gris-borde);
+      border-radius: 12px;
+      margin-top: 20px;
+      padding: 24px 28px;
+    }
+
+    section { padding: 8px 0; }
+
+    h2 { font-size: 1.7rem; margin: 16px 0 8px; color: var(--negro); }
+    h3 { font-size: 1.2rem; margin: 20px 0 8px; color: var(--azul-oscuro); }
+    p { margin: 8px auto 16px; max-width: 700px; }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: 1px solid var(--gris-borde);
+    }
+
+    /* Lista centrada pero con viñetas legibles */
+    ul {
+      display: inline-block;
+      text-align: left;
+      margin: 0 0 8px;
+      padding-left: 22px;
+    }
+    li { margin-bottom: 4px; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--gris-borde);
+      margin: 24px 0;
+    }
+
+    /* Tablas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 8px;
+    }
+    caption {
+      font-weight: 700;
+      color: var(--gris-texto);
+      padding-bottom: 8px;
+    }
+    th {
+      background-color: var(--azul);
+      color: var(--blanco);
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border: 1px solid var(--gris-borde);
+    }
+    tbody tr:nth-child(even) { background-color: var(--gris-fondo); }
+    tbody tr:hover { background-color: #e8f2fd; }
+
+    /* Contacto */
+    details {
+      max-width: 560px;
+      margin: 0 auto;
+      border: 1px solid var(--gris-borde);
+      border-radius: 10px;
+      background-color: var(--gris-fondo);
+    }
+    summary {
+      background-color: var(--azul);
+      color: var(--blanco);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary:hover { background-color: var(--azul-oscuro); }
+    details[open] summary { border-radius: 10px 10px 0 0; }
+
+    form { padding: 8px 20px 20px; text-align: left; }
+    form h3 { text-align: center; color: var(--negro); }
+    form p { max-width: none; margin: 0 0 14px; }
+    label { font-weight: 600; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      font-family: inherit;
+      font-size: 15px;
+      border: 1px solid #a1a1a6;
+      border-radius: 6px;
+      background-color: var(--blanco);
+    }
+    input:focus, select:focus, textarea:focus, summary:focus-visible, a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--azul-claro);
+      outline-offset: 1px;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+      background-color: var(--azul);
+      color: var(--blanco);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 32px;
+      cursor: pointer;
+    }
+    button:hover { background-color: var(--azul-oscuro); }
+
+    /* El mensaje de gracias está oculto y solo aparece cuando la URL termina en #gracias */
+    #gracias {
+      display: none;
+      max-width: 560px;
+      margin: 20px auto 0;
+      padding: 12px 16px;
+      background-color: #e6f4ea;
+      color: #1e6b34;
+      border: 1px solid #a8d5b5;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    #gracias:target { display: block; }
+
+    footer {
+      margin-top: 20px;
+      padding: 16px;
+      text-align: center;
+      color: var(--gris-texto);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      main { padding: 16px; }
+      th, td { padding: 8px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO DE LA PÁGINA -->
+  <header>
+    <h1>Mundo iPhone</h1>
+    <p>Todo lo que necesitas saber sobre los celulares de Apple</p>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#elegir">Cómo elegir</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- IMAGEN 1: PORTADA -->
+    <p>
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS04hUsou8rqjGdt7AcvpaQAv24iPDLAxnlR7sc11U5ma2qEDca" alt="Portada: varios iPhone de diferentes colores" width="500">
+    </p>
+
+    <hr>
+
+    <!-- SECCIÓN 1: INICIO -->
+    <section id="inicio">
+      <h2>¿Qué es el iPhone?</h2>
+      <p>
+        El iPhone es la línea de teléfonos inteligentes creada por Apple. Se lanzó por primera vez en 2007
+        y funciona con el sistema operativo iOS. Se caracteriza por su cámara, su rendimiento y las
+        actualizaciones de software por varios años.
+      </p>
+
+      <!-- IMAGEN 2: INICIO -->
+      <p>
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS04hUsou8rqjGdt7AcvpaQAv24iPDLAxnlR7sc11U5ma2qEDca" alt="Un iPhone visto de frente y de atrás" width="300">
+      </p>
+
+      <h3>Características principales</h3>
+      <ul>
+        <li>Sistema operativo iOS</li>
+        <li>Chip propio de Apple</li>
+        <li>Cámaras de alta calidad</li>
+        <li>Face ID para desbloquear el teléfono</li>
+        <li>Integración con otros productos Apple</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <!-- SECCIÓN 2: MODELOS (TABLA 1) -->
+    <section id="modelos">
+      <h2>Modelos de iPhone</h2>
+
+      <!-- IMAGEN 3: MODELOS -->
+      <p>
+        <img src="https://imagenes.elpais.com/resizer/v2/ZDKAG7YQCJPURMSDXL4XO3IT7Y.jpg?auth=0d6a245b4c71ad2b1b5c381404a3b45b5316d3e5ac0921a7d296350884bd0f8b&width=1960" alt="Comparación de varias generaciones de iPhone" width="500">
+      </p>
+
+      <p>Tabla de algunas generaciones recientes:</p>
+
+      <table>
+        <caption>Generaciones de iPhone</caption>
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Año de lanzamiento</th>
+            <th>Chip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>iPhone 12</td><td>2020</td><td>A14 Bionic</td></tr>
+          <tr><td>iPhone 13</td><td>2021</td><td>A15 Bionic</td></tr>
+          <tr><td>iPhone 14</td><td>2022</td><td>A15 Bionic</td></tr>
+          <tr><td>iPhone 15</td><td>2023</td><td>A16 Bionic</td></tr>
+          <tr><td>iPhone 16</td><td>2024</td><td>A18</td></tr>
+          <tr><td>iPhone 17</td><td>2025</td><td>A19</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECCIÓN 3: CÓMO ELEGIR (TABLA 2) -->
+    <section id="elegir">
+      <h2>¿Cómo elegir tu iPhone?</h2>
+      <p>Depende del uso que le vayas a dar:</p>
+
+      <!-- IMAGEN 4: CÁMARA -->
+      <p>
+        <img src="https://media.es.wired.com/photos/68c2f709f7df9dedd9d34ff4/4:3/w_5376,h_4032,c_limit/iPhone%2017%20Pro%20SOURCE%20Julian%20Chokkattu.jpg" alt="Cámaras traseras de un iPhone Pro" width="300">
+      </p>
+
+      <table>
+        <caption>Recomendación según el tipo de usuario</caption>
+        <thead>
+          <tr>
+            <th>Tipo de usuario</th>
+            <th>Qué necesita</th>
+            <th>Recomendación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Uso básico</td>
+            <td>Llamadas, redes sociales, fotos casuales</td>
+            <td>Un modelo estándar o de generación anterior</td>
+          </tr>
+          <tr>
+            <td>Estudiante</td>
+            <td>Buena batería y buen precio</td>
+            <td>Un modelo estándar reciente</td>
+          </tr>
+          <tr>
+            <td>Fotografía y video</td>
+            <td>Mejores cámaras y más almacenamiento</td>
+            <td>Un modelo Pro</td>
+          </tr>
+          <tr>
+            <td>Juegos y trabajo</td>
+            <td>Mayor rendimiento y pantalla grande</td>
+            <td>Un modelo Pro o Pro Max</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr>
+
+    <!-- SECCIÓN 4: CONTACTO (BOTÓN + FORMULARIO) -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes dudas? Presiona el botón para escribirnos.</p>
+
+      <!-- details/summary: se abre y cierra sin JavaScript -->
+      <details>
+        <summary>Contáctanos</summary>
+
+        <!-- action="#gracias" simula el envío: la página salta al mensaje de gracias -->
+        <form action="#gracias" method="get">
+          <h3>Formulario de contacto</h3>
+
+          <p>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required>
+          </p>
+
+          <p>
+            <label for="correo">Correo electrónico:</label><br>
+            <input type="email" id="correo" name="correo" required>
+          </p>
+
+          <p>
+            <label for="motivo">Motivo de contacto:</label><br>
+            <select id="motivo" name="motivo">
+              <option value="servicio">Servicio técnico</option>
+              <option value="garantia">Garantía</option>
+              <option value="compra">Compra o cotización</option>
+              <option value="reparacion">Reparación</option>
+              <option value="accesorios">Accesorios</option>
+              <option value="informacion">Información general</option>
+              <option value="otro">Otro</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="modelo">Modelo de interés:</label><br>
+            <select id="modelo" name="modelo">
+              <option value="iphone12">iPhone 12</option>
+              <option value="iphone13">iPhone 13</option>
+              <option value="iphone14">iPhone 14</option>
+              <option value="iphone15">iPhone 15</option>
+              <option value="iphone16">iPhone 16</option>
+              <option value="iphone17">iPhone 17</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="mensaje">Mensaje:</label><br>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          </p>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </details>
+
+      <!-- Mensaje oculto; solo se ve cuando la URL termina en #gracias -->
+      <p id="gracias">✅ Gracias, tu mensaje fue enviado.</p>
+    </section>
+
+  </main>
+
+  <footer>Galicia Marquez Alberto Argenis. Num.Control 0840.</footer>
+
+</body>
+</html>
