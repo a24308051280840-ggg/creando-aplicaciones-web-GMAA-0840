@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URN | Universidad</title>
+<style>
+  :root{
+    --morado:#512373;
+    --morado-oscuro:#3f1a5a;
+    --dorado:#c9a15b;
+    --texto:#333;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Source Sans Pro","Source Sans 3","Segoe UI",Arial,sans-serif;
+    color:var(--texto);
+    background:#fff;
+  }
+
+  /* ---------- Navegación ---------- */
+  header{
+    background:var(--morado);
+    position:sticky;top:0;z-index:10;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;height:48px;
+  }
+  .logo{
+    color:#fff;line-height:1;text-align:left;text-decoration:none;
+    font-weight:900;font-size:26px;letter-spacing:-1px;
+  }
+  .logo small{display:block;font-size:7px;font-weight:600;letter-spacing:.5px}
+  nav ul{list-style:none;display:flex;gap:48px;padding-right:40px}
+  nav a{
+    color:#fff;text-decoration:none;font-size:14px;font-weight:600;
+    padding:15px 0;display:inline-block;cursor:pointer;
+  }
+  nav a:hover,nav a.activo{border-bottom:3px solid var(--dorado)}
+
+  /* ---------- Páginas ---------- */
+  .pagina{display:none}
+  .pagina.visible{display:block}
+
+  h2.dorado{
+    color:var(--dorado);text-align:center;font-size:38px;font-weight:700;
+    margin:20px 0;
+  }
+
+  /* ---------- Inicio ---------- */
+  .modalidades{
+    display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+    max-width:900px;margin:10px auto 0;padding:0 10px;
+  }
+  .modalidades div{
+    background:var(--morado);color:#fff;width:208px;height:127px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-size:23px;font-weight:700;gap:4px;
+  }
+  .modalidades span{font-size:30px;line-height:1}
+  hr.separador{
+    max-width:866px;margin:80px auto 0;border:0;border-top:1px solid #ddd;
+  }
+  .foto-equipo{
+    max-width:850px;height:260px;margin:120px auto 60px;
+    background:#eee;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;color:#999;font-size:16px;
+  }
+  .directorio{max-width:640px;margin:0 auto;padding:0 10px 40px}
+  .directorio h3{
+    color:var(--morado);text-align:center;font-size:25px;font-weight:700;margin-bottom:26px;
+  }
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th{text-align:left;padding:7px 4px;font-weight:700}
+  td{padding:6px 4px;border-top:1px solid #ddd;vertical-align:top;line-height:1.35}
+  tbody tr:last-child td{border-bottom:1px solid #ddd}
+  tbody tr:hover{background:#efefef}
+  td a{color:var(--morado);text-decoration:none}
+  td a:hover{text-decoration:underline}
+
+  /* ---------- Licenciaturas ---------- */
+  h1.seleccion{
+    color:var(--morado);text-align:center;font-size:34px;font-weight:700;
+    margin:62px 0 28px;letter-spacing:-.5px;
+  }
+  .tabs{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+  .tabs button{
+    font:inherit;font-size:24px;color:var(--morado);background:none;border:0;
+    padding:3px 12px;border-radius:3px;cursor:pointer;
+  }
+  .tabs button.activo{background:var(--morado);color:#fff}
+  .carreras{
+    max-width:960px;margin:0 auto;padding:0 10px;
+    display:grid;grid-template-columns:1fr 1fr;gap:8px 33px;
+  }
+  .carreras a{
+    background:var(--morado);color:#fff;text-align:center;text-decoration:none;
+    padding:12px 8px;font-size:18px;font-weight:500;display:block;position:relative;overflow:hidden;
+  }
+  .carreras a:hover{background:#2a0f40;color:var(--dorado)}
+  .carreras a.nueva{background:linear-gradient(90deg,#5d3a0a,#b57a22 60%,#6b4410)}
+  .carreras a.nueva::before{
+    content:"NUEVA";position:absolute;left:-26px;top:10px;width:110px;
+    background:#3a2506;color:#fff;font-size:13px;font-weight:800;
+    transform:rotate(-30deg);padding:2px 0;letter-spacing:.5px;
+  }
+  hr.linea{max-width:972px;margin:70px auto 40px;border:0;border-top:1px solid #ddd}
+  .logos{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:22px 30px;
+    max-width:900px;margin:0 auto 50px;padding:0 10px;
+  }
+  .logos span{
+    font-weight:900;color:var(--morado);font-size:15px;text-align:center;line-height:1.1;
+    min-width:80px;
+  }
+  .logos span b{display:block;font-size:30px;letter-spacing:-1px}
+  .logos.hermanas span{font-size:15px;font-weight:700}
+  .logos.hermanas{margin-bottom:80px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--morado);color:#fff;padding:55px 20px 60px;
+    background-image:linear-gradient(rgba(81,35,115,.92),rgba(81,35,115,.92));
+  }
+  .footer-in{
+    max-width:920px;margin:0 auto;display:flex;gap:30px;flex-wrap:wrap;
+    justify-content:center;align-items:flex-start;
+  }
+  .f-logo{font-weight:900;font-size:50px;line-height:.9;letter-spacing:-2px}
+  .f-logo small{display:block;font-size:13px;font-weight:600;letter-spacing:0;margin-top:2px}
+  .f-links{list-style:none;font-size:12px;line-height:1.6}
+  .f-links a{color:#fff;text-decoration:none}
+  .f-links a::before{content:"› ";font-weight:700}
+  .f-col{font-size:12px;text-align:center;line-height:1.35;width:170px}
+  .f-col strong{display:block;margin-bottom:2px}
+  .f-col p{margin-bottom:12px}
+
+  @media (max-width:760px){
+    nav ul{gap:22px;padding-right:0}
+    .carreras{grid-template-columns:1fr}
+    .modalidades div{width:46%}
+    h2.dorado{font-size:30px}
+    .tabs button{font-size:18px}
+  }
+
+  .carreras a{cursor:pointer}
+  .detalle{max-width:760px;margin:0 auto;padding:10px 20px 20px}
+  .detalle[hidden]{display:none}
+  .detalle h2{color:var(--morado);font-size:32px;margin:14px 0 8px}
+  .detalle p{font-size:18px;line-height:1.5;margin-bottom:12px}
+  .det-mod{color:var(--morado);font-weight:600}
+  .volver{font:inherit;font-size:16px;background:none;border:0;color:var(--morado);cursor:pointer;padding:4px 0}
+  .volver:hover{text-decoration:underline}
+  .det-btn{display:inline-block;background:var(--morado);color:#fff;text-decoration:none;padding:12px 22px;font-weight:600;margin-top:6px}
+  .det-btn:hover{background:var(--morado-oscuro)}
+  .det-aviso{margin-top:14px;color:var(--morado)}
+  .vacio{grid-column:1/-1;text-align:center;font-size:18px;color:#777;padding:20px}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#inicio">URN<small>UNIVERSIDAD</small></a>
+  <nav>
+    <ul>
+      <li><a href="#inicio" data-pag="inicio" class="activo">Inicio</a></li>
+      <li><a href="#licenciaturas" data-pag="licenciaturas">Licenciaturas</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ======================= INICIO ======================= -->
+<main id="inicio" class="pagina visible">
+  <h2 class="dorado">Modalidad:</h2>
+  <div class="modalidades">
+    <div><span>💻</span>Escolarizada</div>
+    <div><span>🏫</span>Dies</div>
+    <div><span>📅</span>Sabatino</div>
+    <div><span>🖥️</span>Virtual</div>
+  </div>
+  <hr class="separador">
+
+  <div class="foto-equipo">Equipo del Campus Cd. Juárez</div>
+
+  <section class="directorio">
+    <h3>Directorio</h3>
+    <table>
+      <thead>
+        <tr><th>Área</th><th>Contacto</th><th>Teléfono</th><th>Correo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Director de Campus Cd. Juárez</td><td>Mtro. Alfonso Cuitláhuac Rodriguez Aguilar</td><td>656 687 2446 y 47 ext. 1002</td><td><a href="mailto:director.jz@urncdj.edu.mx">director.jz@urncdj.edu.mx</a></td></tr>
+        <tr><td>Sub Directora Administrativa</td><td>Lic. Olivia Valenzuela</td><td>656 687 2446 y 47 ext. 1006</td><td><a href="mailto:subdirector.administrativo.jz@urncdj.edu.mx">subdirector.administrativo.jz@urncdj.edu.mx</a></td></tr>
+        <tr><td>Sub Directora Preparatoria</td><td>Lic. Maria Luisa García Esparza</td><td>656 687 2446 y 47 ext. 1007</td><td><a href="mailto:preparatoria.jz@urncdj.edu.mx">preparatoria.jz@urncdj.edu.mx</a></td></tr>
+        <tr><td>Sistemas</td><td>Ing. Alexis Manuel Santillan Arellanes</td><td>656 687 2446 y 47 ext. 1004</td><td><a href="mailto:sistemas.jz@urn.edu.mx">sistemas.jz@urn.edu.mx</a></td></tr>
+        <tr><td>Sub Académico</td><td>M.D.O. Jesus Homero Madrid Navarro</td><td>656 687 2446 y 47 ext. 1011</td><td><a href="mailto:subdireccion.academica.jz@urn.edu.mx">subdireccion.academica.jz@urn.edu.mx</a></td></tr>
+        <tr><td>Prácticas y Servicio Social</td><td>Lic. Karim Castañeda Carrillo</td><td>656 687 2446 y 47 ext. 1013</td><td><a href="mailto:practicas.servicio.social.jz@urncdj.edu.mx">practicas.servicio.social.jz@urncdj.edu.mx</a></td></tr>
+        <tr><td>Titulación</td><td>Lic. Aracely Alcala Enriquez</td><td>656 687 2446 y 47 ext.1012</td><td><a href="mailto:titulacion.jz@urncdj.edu.mx">titulacion.jz@urncdj.edu.mx</a></td></tr>
+        <tr><td>Control Escolar</td><td>Lic. María Isabel González Muñoz</td><td>656 687 2446 y 47 ext.1003</td><td><a href="mailto:control.escolar@urncdj.edu.mx">control.escolar@urncdj.edu.mx</a></td></tr>
+        <tr><td>Asesor educativo</td><td>Lic. César Alberto Castañeda Carrillo</td><td>656 743 7097 y 656 687 2446 ext. 1014</td><td><a href="mailto:coordinador.promocion.jz@urncdj.edu.mx">coordinador.promocion.jz@urncdj.edu.mx</a></td></tr>
+        <tr><td>Asesor educativo</td><td>Lic. Daniela Michel Castro Muñoz</td><td>656 743 7037 y 656 687 2446 ext. 1001</td><td><a href="mailto:asesor.educativo.b@urncdj.edu.mx">asesor.educativo.b@urncdj.edu.mx</a></td></tr>
+        <tr><td>Asesor educativo</td><td>Lic. Fernando Arturo Pérez Chavez</td><td>656 311 3567 y 656 687 2446 ext. 1005</td><td><a href="mailto:asesor.educativo.a@urncdj.edu.mx">asesor.educativo.a@urncdj.edu.mx</a></td></tr>
+        <tr><td>Asesor educativo</td><td>Lic. Jesus Orlando Sandoval Sanchez</td><td>656 743 7087 y 656 687 2446 ext. 1010</td><td><a href="mailto:asesor.educativo.c@urncdj.edu.mx">asesor.educativo.c@urncdj.edu.mx</a></td></tr>
+        <tr><td>Asesor educativo</td><td>Lic. Jacqueline Gomez Ramirez</td><td>656 743 7027 y 656 687 2446 ext. 1015</td><td><a href="mailto:asesor.educativo.d@urncdj.edu.mx">asesor.educativo.d@urncdj.edu.mx</a></td></tr>
+        <tr><td>Recepcionista</td><td>Cinthia Vázquez</td><td>656 687 2446 y 47 ext. 1008</td><td><a href="mailto:recepcion.jx@urncdj.edu.mx">recepcion.jx@urncdj.edu.mx</a></td></tr>
+        <tr><td>Director Comercial DGC - URN</td><td>Mtro. José Ricardo Guerra Gomez</td><td>818 658 6756</td><td><a href="mailto:corp.promocion@urn.edu.mx">corp.promocion@urn.edu.mx</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<!-- ======================= LICENCIATURAS ======================= -->
+<main id="licenciaturas" class="pagina">
+  <h1 class="seleccion">SELECCIONA TU MODALIDAD:</h1>
+  <div class="tabs">
+    <button class="activo">Escolarizada</button>
+    <button>Virtual</button>
+    <button>Sabatino</button>
+    <button>Ejecutiva</button>
+    <button>DIES</button>
+  </div>
+
+  <div class="carreras" id="listaCarreras"></div>
+
+  <section class="detalle" id="detalleCarrera" hidden>
+    <button class="volver" id="btnVolver">‹ Volver a licenciaturas</button>
+    <h2 id="detNombre"></h2>
+    <p class="det-mod">Modalidad: <span id="detMods"></span></p>
+    <p id="detTexto"></p>
+    <a class="det-btn" href="#contacto-aviso" id="detContacto">Quiero más información</a>
+    <p class="det-aviso" id="detAviso" hidden>Comunícate al campus: (656) 687-2447 / 687-0678 / 687-2446</p>
+  </section>
+
+  <hr class="linea">
+
+  <h2 class="dorado">Nuestra oferta educativa</h2>
+  <div class="logos">
+    <span><b>URN</b>VIRTUAL</span>
+    <span><b>URN</b>AVIACIÓN</span>
+    <span><b>URN</b>LICENCIATURAS AVIACIÓN</span>
+    <span><b>URN</b>UNIVERSIDAD EJECUTIVA</span>
+    <span><b>URN</b>UNIVERSIDAD PREPA ABIERTA</span>
+    <span><b>URN</b>UNIVERSIDAD CENTRO DE CAPACITACIÓN</span>
+    <span><b>URN</b>UNIVERSIDAD SABATINA</span>
+  </div>
+
+  <h2 class="dorado">Unidades hermanas</h2>
+  <div class="logos hermanas">
+    <span>Colegio Regional Bilingüe</span>
+    <span>UDECH</span>
+    <span>Ángel Trias Preparatoria</span>
+    <span>Ciencias Paramédicas</span>
+    <span>Membresía Integra</span>
+  </div>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="footer-in">
+    <div class="f-logo">URN<small>UNIVERSIDAD</small></div>
+    <ul class="f-links">
+      <li><a href="#inicio" data-pag="inicio">Inicio</a></li>
+      <li><a href="#licenciaturas" data-pag="licenciaturas">Licenciaturas</a></li>
+      <li><a href="#">Posgrado</a></li>
+      <li><a href="#">Campus</a></li>
+      <li><a href="#">Servicios Escolares</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li><a href="#">Reglamento</a></li>
+    </ul>
+    <div class="f-col">
+      <p><strong>CHIHUAHUA</strong>Calle Allende No. 2628<br>Col. Zarco<br>(614) 411-14-51</p>
+      <p><strong>CD. JUÁREZ</strong>Camino Viejo a San José No.10051<br>Col Partido Seneció<br>(656) 687-2447 / 687-0678<br>687-2446</p>
+    </div>
+    <div class="f-col">
+      <p><strong>NUEVO CASAS GRANDES</strong>Libramiento Gómez Morín y Minerva No. 1410<br>(636) 694-0873</p>
+      <p><strong>CUAUHTÉMOC</strong>Km. 2 carretera Anáhuac<br>Col. Parque Industrial Cuauhtémoc<br>(625) 582-7588 / 112-1801</p>
+    </div>
+    <div class="f-col">
+      <p><strong>PARRAL</strong>Perimetral Sur Luis Donaldo Colosio<br>Km. 1920, Col. Cerro Blanco<br>(627) 525-4000</p>
+      <p><strong>DELICIAS</strong>Calle 3a Sur &amp; Av 8a Sur<br>Sur 711<br>(639) 100 42 42</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Cambia entre "Inicio" y "Licenciaturas" sin salir del documento
+  const paginas = document.querySelectorAll('.pagina');
+  const enlaces = document.querySelectorAll('nav a');
+
+  function mostrar(id){
+    if(id !== 'inicio' && id !== 'licenciaturas') id = 'inicio';
+    paginas.forEach(p => p.classList.toggle('visible', p.id === id));
+    enlaces.forEach(a => a.classList.toggle('activo', a.dataset.pag === id));
+    window.scrollTo(0,0);
+  }
+
+  window.addEventListener('hashchange', () => mostrar(location.hash.slice(1)));
+  mostrar(location.hash.slice(1));
+
+  // ---------- Licenciaturas ----------
+  const T = ['Escolarizada','Virtual','Sabatino','Ejecutiva','DIES'];
+  const carreras = [
+    // 0 Escolarizada
+    [
+      {n:'Psicología', nueva:1},{n:'Nutrición'},
+      {n:'Diseño Gráfico', nueva:1},{n:'Gastronomía'},
+      {n:'Contaduría Pública', nueva:1},{n:'Ventas y Negocios Digitales'},
+      {n:'Administración de empresas'},{n:'Diseño de Imagen Personal'},
+      {n:'Administración Financiera'},{n:'Ingeniería industrial en calidad y productividad'},
+      {n:'Administración de Seguros y Fianzas'},{n:'Ingeniería industrial en estadística aplicada'},
+      {n:'Comercio exterior'},{n:'Negocios internacionales'},
+      {n:'Ciencias de la comunicación'},{n:'Producción y organización de eventos'},
+      {n:'Creación y desarrollo de empresas'},{n:'Turismo'},
+      {n:'Derecho'},{n:'Aviación'}
+    ],
+    // 1 Virtual
+    [
+      {n:'Desarrollo Gubernamental Municipal'},{n:'Contaduría'},
+      {n:'Administración'},{n:'Ingeniería Industrial en Calidad y Productividad'},
+      {n:'Empresas Digitales'},{n:'Derecho'}
+    ],
+    // 2 Sabatino
+    [
+      {n:'Administración de empresas'},{n:'Derecho'}
+    ],
+    // 3 Ejecutiva
+    [
+      {n:'Desarrollo Comercial'},{n:'Ingeniería Industrial en Calidad y Productividad'},
+      {n:'Derecho'},{n:'Contaduría Pública'},
+      {n:'Administración'}
+    ],
+    // 4 DIES
+    [
+      {n:'Derecho'},{n:'Negocios internacionales'},
+      {n:'Ingeniería industrial en calidad y productividad'},{n:'Comercio exterior'}
+    ]
+  ];
+
+  const lista = document.getElementById('listaCarreras');
+  const detalle = document.getElementById('detalleCarrera');
+  const botones = document.querySelectorAll('.tabs button');
+  const tabs = document.querySelector('.tabs');
+  const titulo = document.querySelector('h1.seleccion');
+  let modActual = 0;
+
+  function pintar(){
+    lista.innerHTML = '';
+    const items = carreras[modActual];
+    if(!items.length){
+      lista.innerHTML = '<p class="vacio">Próximamente: licenciaturas de esta modalidad.</p>';
+      return;
+    }
+    items.forEach(c => {
+      const a = document.createElement('a');
+      a.textContent = c.n;
+      if(c.nueva) a.className = 'nueva';
+      a.addEventListener('click', () => abrir(c));
+      lista.appendChild(a);
+    });
+  }
+
+  function abrir(c){
+    document.getElementById('detNombre').textContent = c.n;
+    document.getElementById('detMods').textContent = T[modActual];
+    document.getElementById('detTexto').textContent =
+      'Licenciatura en ' + c.n + ' en modalidad ' + T[modActual].toLowerCase() +
+      '. Consulta con un asesor educativo el plan de estudios, los horarios y los requisitos de inscripción.';
+    document.getElementById('detAviso').hidden = true;
+    lista.hidden = tabs.hidden = titulo.hidden = true;
+    detalle.hidden = false;
+    window.scrollTo(0,0);
+  }
+
+  function cerrar(){
+    detalle.hidden = true;
+    lista.hidden = tabs.hidden = titulo.hidden = false;
+  }
+
+  botones.forEach((b,i) => b.addEventListener('click', () => {
+    botones.forEach(x => x.classList.remove('activo'));
+    b.classList.add('activo');
+    modActual = i;
+    pintar();
+  }));
+
+  document.getElementById('btnVolver').addEventListener('click', cerrar);
+  document.getElementById('detContacto').addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('detAviso').hidden = false;
+  });
+
+  // Al volver a la pestaña Licenciaturas siempre se ve la lista
+  window.addEventListener('hashchange', cerrar);
+  // Los botones de navegación funcionan siempre, aunque ya estés en esa página
+  document.querySelectorAll('[data-pag]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    mostrar(a.dataset.pag);
+    cerrar();
+    // En vistas previas con sandbox esto puede estar bloqueado; no debe romper la navegación
+    try { history.replaceState(null, '', '#' + a.dataset.pag); } catch (err) {}
+  }));
+
+  pintar();
+</script>
+</body>
+</html>
