@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cinépolis</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f2f4f8; color: #1d2433; }
+    section { width: 90%; max-width: 1000px; margin: 0 auto; padding: 30px 0; }
+    h2 { color: #0a2a6b; margin-bottom: 15px; border-left: 6px solid #ffd23f; padding-left: 10px; }
+
+    header { background: linear-gradient(135deg, #061b47, #1f4fb8); color: white; text-align: center; padding: 40px 20px; }
+    header h1 { font-size: 42px; margin-bottom: 5px; }
+    header .subtitulo { color: #ffd23f; font-size: 18px; font-weight: bold; margin-bottom: 15px; }
+    header .descripcion { max-width: 750px; margin: 15px auto 0; font-size: 15px; line-height: 1.6; color: #e2e8f0; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; border-left: 4px solid #ffd23f; text-align: justify; }
+
+    nav { background: #061b47; text-align: center; padding: 10px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; padding: 10px 15px; display: inline-block; }
+    nav a:hover { background: #ffd23f; color: #061b47; }
+
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th { background: #0a2a6b; color: white; text-align: left; padding: 10px; }
+    td { padding: 10px; border-bottom: 1px solid #d5dae5; }
+    .cartel { width: 110px; text-align: center; }
+    .cartel img { width: 90px; display: block; margin: 0 auto; }
+    .azul { background: linear-gradient(160deg, #0a2a6b, #4c86f0); }
+    .rojo { background: linear-gradient(160deg, #5c0d0d, #e0443b); }
+    .verde { background: linear-gradient(160deg, #0f4d2c, #5fc48a); }
+    .morado { background: linear-gradient(160deg, #3a1a5c, #a46be0); }
+
+    .club { background: #0a2a6b; width: 100%; max-width: none; }
+    .club h2 { color: white; }
+    .formularios { display: flex; flex-wrap: wrap; gap: 20px; width: 90%; max-width: 1000px; margin: 0 auto; }
+    form { flex: 1; min-width: 250px; background: white; padding: 20px; border-radius: 8px; }
+    form h3 { color: #0a2a6b; margin-bottom: 10px; }
+    label { display: block; margin-top: 10px; font-weight: bold; font-size: 14px; }
+    input { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #b8c0d4; border-radius: 4px; }
+    button { width: 100%; margin-top: 15px; padding: 10px; background: #0a2a6b; color: white; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; }
+
+    .mensaje { display: none; width: 90%; max-width: 1000px; margin: 0 auto 20px; padding: 15px; background: #d9f5e3; color: #0f4d2c; font-weight: bold; border-radius: 8px; }
+
+    footer { background: #061b47; color: #d5dcf0; text-align: center; padding: 25px; font-size: 14px; }
+    footer p { margin-top: 5px; }
+    .autor { color: #ffd23f; font-weight: bold; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+  <header id="inicio">
+    <h1>🎬 CINÉPOLIS</h1>
+    <p class="subtitulo">Vive la experiencia del cine</p>
+    <div class="descripcion">
+      <p>Bienvenido a Cinépolis, el lugar donde las mejores historias cobran vida. Disfruta de las instalaciones más modernas, pantallas de máxima definición, sonido envolvente y tus dulcerías favoritas. Explora nuestra cartelera actualizada, entérate de los próximos estrenos y únete a Cinépolis Club para disfrutar de promociones y beneficios exclusivos en cada visita.</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#cartelera">En cartelera</a>
+    <a href="#estrenos">Próximos estrenos</a>
+    <a href="#club">Cinépolis Club</a>
+  </nav>
+
+  <section id="cartelera">
+    <h2>En cartelera</h2>
+    <table>
+      <tr><th>Cartel</th><th>Película</th><th>Género</th><th>Estreno</th></tr>
+      <tr><td class="cartel azul"><img src="digger.png" alt="Digger"></td><td>Digger</td><td>Acción / Comedia</td><td>1 oct</td></tr>
+      <tr><td class="cartel morado"><img src="verity.png" alt="Verity: La sombra de un engaño"></td><td>Verity: La sombra de un engaño</td><td>Drama / Suspenso</td><td>1 oct</td></tr>
+      <tr><td class="cartel rojo"><img src="madre-siniestra.png" alt="Madre Siniestra"></td><td>Madre Siniestra</td><td>Terror</td><td>8 oct</td></tr>
+      <tr><td class="cartel azul"><img src="hope.png" alt="Hope: El primer impacto"></td><td>Hope: El primer impacto</td><td>Ciencia ficción</td><td>8 oct</td></tr>
+      <tr><td class="cartel rojo"><img src="street-fighter.png" alt="Street Fighter"></td><td>Street Fighter</td><td>Acción / Fantasía</td><td>15 oct</td></tr>
+      <tr><td class="cartel verde"><img src="la-caida-de-la-ballena.png" alt="La caída de la ballena"></td><td>La caída de la ballena</td><td>Aventura</td><td>15 oct</td></tr>
+    </table>
+  </section>
+
+  <section id="estrenos">
+    <h2>Próximos estrenos</h2>
+    <table>
+      <tr><th>Cartel</th><th>Película</th><th>Género</th><th>Estreno</th></tr>
+      <tr><td class="cartel rojo"><img src="amarte.png" alt="Amarte"></td><td>Amarte</td><td>Romance</td><td>22 oct</td></tr>
+      <tr><td class="cartel morado"><img src="charro-negro.png" alt="La venganza del Charro Negro"></td><td>La venganza del Charro Negro</td><td>Terror</td><td>22 oct</td></tr>
+      <tr><td class="cartel verde"><img src="clayface.png" alt="Clayface"></td><td>Clayface</td><td>Acción / Terror</td><td>22 oct</td></tr>
+      <tr><td class="cartel azul"><img src="wildwood.png" alt="El Bosque Olvidado: Wildwood"></td><td>El Bosque Olvidado: Wildwood</td><td>Animación</td><td>29 oct</td></tr>
+    </table>
+  </section>
+
+  <section id="club" class="club">
+    <h2>Cinépolis Club</h2>
+    <p class="mensaje" id="mensaje-enviado">✅ ¡Datos enviados exitosamente!</p>
+
+    <div class="formularios">
+      <form onsubmit="event.preventDefault(); document.getElementById('mensaje-enviado').style.display='block'; this.reset();">
+        <h3>Iniciar sesión</h3>
+        <label>Número de tarjeta Cinépolis Club</label>
+        <input type="text" required>
+        <label>Contraseña</label>
+        <input type="password" required>
+        <button type="submit">Entrar</button>
+      </form>
+
+      <form onsubmit="event.preventDefault(); document.getElementById('mensaje-enviado').style.display='block'; this.reset();">
+        <h3>Registrarme</h3>
+        <label>Nombre completo</label>
+        <input type="text" required>
+        <label>Número de tarjeta Cinépolis Club</label>
+        <input type="text" required>
+        <label>Contraseña</label>
+        <input type="password" required>
+        <button type="submit">Crear cuenta</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p class="autor">GALICIA MARQUEZ ALBERTO ARGENIS 0840</p>
+    <p>Cinépolis | Sitio realizado con fines escolares</p>
+  </footer>
+
+</body>
+</html>
