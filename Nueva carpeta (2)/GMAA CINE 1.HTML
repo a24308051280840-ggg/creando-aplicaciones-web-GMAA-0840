@@ -90,7 +90,7 @@
     <p class="mensaje" id="mensaje-enviado">✅ ¡Datos enviados exitosamente!</p>
 
     <div class="formularios">
-      <form onsubmit="event.preventDefault(); document.getElementById('mensaje-enviado').style.display='block'; this.reset();">
+      <form onsubmit="return false;">
         <h3>Iniciar sesión</h3>
         <label>Número de tarjeta Cinépolis Club</label>
         <input type="text" required>
@@ -99,7 +99,7 @@
         <button type="submit">Entrar</button>
       </form>
 
-      <form onsubmit="event.preventDefault(); document.getElementById('mensaje-enviado').style.display='block'; this.reset();">
+      <form onsubmit="return false;">
         <h3>Registrarme</h3>
         <label>Nombre completo</label>
         <input type="text" required>
