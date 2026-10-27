@@ -1,0 +1,40 @@
+-- Ejecutar en phpMyAdmin (pestaña SQL) o en la consola de MySQL
+CREATE DATABASE IF NOT EXISTS tienda_autos CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE tienda_autos;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  correo VARCHAR(100) NOT NULL UNIQUE,
+  contrasena VARCHAR(255) NOT NULL,
+  fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS autos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  marca VARCHAR(40) NOT NULL,
+  modelo VARCHAR(80) NOT NULL,
+  anio INT NOT NULL,
+  precio DECIMAL(12,2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_auto INT NOT NULL,
+  color VARCHAR(30) NOT NULL,
+  forma_pago VARCHAR(30) NOT NULL,
+  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+  FOREIGN KEY (id_auto) REFERENCES autos(id)
+);
+
+INSERT INTO autos (marca, modelo, anio, precio) VALUES
+('Toyota',     'Corolla',  2026, 429900.00),
+('Toyota',     'Hilux',    2026, 689900.00),
+('Nissan',     'Versa',    2026, 329900.00),
+('Nissan',     'Frontier', 2026, 649900.00),
+('Chevrolet',  'Aveo',     2026, 279900.00),
+('Chevrolet',  'Silverado',2026, 799900.00),
+('Ford',       'Mustang',  2026, 1189900.00),
+('Volkswagen', 'Jetta',    2026, 449900.00);
