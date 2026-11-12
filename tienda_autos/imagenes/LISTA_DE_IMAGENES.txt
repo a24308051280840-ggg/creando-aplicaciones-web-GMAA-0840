@@ -1,0 +1,51 @@
+LISTA DE IMÁGENES
+Guarda cada foto en esta carpeta (imagenes) con EXACTAMENTE el nombre de la izquierda.
+Puede ser .jpg, .jpeg, .png o .webp (la extensión no importa, pero el nombre sí).
+
+== Sedanes ==
+toyota-corolla                      ->  Toyota Corolla
+toyota-camry                        ->  Toyota Camry
+nissan-versa                        ->  Nissan Versa
+nissan-sentra                       ->  Nissan Sentra
+nissan-altima                       ->  Nissan Altima
+chevrolet-aveo                      ->  Chevrolet Aveo
+honda-civic                         ->  Honda Civic
+honda-accord                        ->  Honda Accord
+volkswagen-jetta                    ->  Volkswagen Jetta
+mazda-mazda-3-sedan                 ->  Mazda Mazda 3 Sedán
+
+== SUV ==
+toyota-rav4                         ->  Toyota RAV4
+honda-cr-v                          ->  Honda CR-V
+mazda-cx-5                          ->  Mazda CX-5
+nissan-kicks                        ->  Nissan Kicks
+nissan-x-trail                      ->  Nissan X-Trail
+chevrolet-tracker                   ->  Chevrolet Tracker
+ford-escape                         ->  Ford Escape
+kia-sportage                        ->  Kia Sportage
+hyundai-tucson                      ->  Hyundai Tucson
+volkswagen-tiguan                   ->  Volkswagen Tiguan
+
+== Pickups ==
+toyota-hilux                        ->  Toyota Hilux
+toyota-tacoma                       ->  Toyota Tacoma
+nissan-frontier                     ->  Nissan Frontier
+ford-ranger                         ->  Ford Ranger
+ford-f-150                          ->  Ford F-150
+chevrolet-silverado                 ->  Chevrolet Silverado
+ram-1500                            ->  RAM 1500
+mitsubishi-l200                     ->  Mitsubishi L200
+volkswagen-amarok                   ->  Volkswagen Amarok
+gmc-sierra                          ->  GMC Sierra
+
+== Deportivos ==
+ford-mustang                        ->  Ford Mustang
+chevrolet-camaro                    ->  Chevrolet Camaro
+dodge-challenger                    ->  Dodge Challenger
+nissan-z                            ->  Nissan Z
+toyota-gr86                         ->  Toyota GR86
+subaru-brz                          ->  Subaru BRZ
+mazda-mx-5                          ->  Mazda MX-5
+chevrolet-corvette                  ->  Chevrolet Corvette
+bmw-m2                              ->  BMW M2
+mini-john-cooper-works              ->  Mini John Cooper Works
